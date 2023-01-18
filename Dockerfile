@@ -6,8 +6,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     gradle \
     maven \
-    wget \
-    dotnet6
+    wget
+
 # Dependencies to execute Android builds
 RUN dpkg --add-architecture i386 && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     libc6:i386 \
