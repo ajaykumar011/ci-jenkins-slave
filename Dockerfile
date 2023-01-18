@@ -23,16 +23,6 @@ RUN curl -sSL https://get.docker.com/ | sh
 ENV NVM_DIR=/usr/local/nvm \
     NODE_VERSION=14.15.0
 
-# install gcloud
-RUN wget -q https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-230.0.0-linux-x86_64.tar.gz -O g.tar.gz && \
-    tar xf g.tar.gz && \
-    rm g.tar.gz && \
-    mv google-cloud-sdk /opt/google-cloud-sdk && \
-    /opt/google-cloud-sdk/install.sh -q && \
-    /opt/google-cloud-sdk/bin/gcloud config set component_manager/disable_update_check true
-# add gcloud SDK to path
-ENV PATH="${PATH}:/opt/google-cloud-sdk/bin/"
-
 # install nvm
 # https://github.com/creationix/nvm#install-script
 RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
